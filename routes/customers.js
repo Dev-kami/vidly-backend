@@ -1,28 +1,6 @@
-const mongoose = require("mongoose");
+const { Customer, validate } = require("../models/customer");
 const express = require("express");
 const router = express.Router();
-const { validateCustomers } = require("../utils");
-
-const customerSchema = mongoose.Schema({
-  isGold: {
-    type: Boolean,
-    default: false,
-  },
-  name: {
-    type: String,
-    required: true,
-    minlength: 5,
-    maxlength: 50,
-  },
-  phone: {
-    type: String,
-    required: true,
-    minlength: 5,
-    maxlength: 50,
-  },
-});
-
-const Customer = new mongoose.model("Customer", customerSchema);
 
 // Get all customers
 router.get("/", async (req, res) => {
@@ -34,7 +12,7 @@ router.get("/", async (req, res) => {
 
 // Add new customers
 router.post("/", async (req, res) => {
-  const { error } = validateCustomers(req.body);
+  const { error } = validate(req.body);
   if (error) res.status(400).send(error.message);
 
   let customer = new Customer({
@@ -58,7 +36,7 @@ router.get("/:id", async (req, res) => {
 
 // Update an existing customer
 router.put("/:id", async (req, res) => {
-  const { error } = validateCustomers(req.body);
+  const { error } = validate(req.body);
   error && res.status(400).send(error.message);
 
   const customer = await Customer.findByIdAndUpdate(
