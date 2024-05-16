@@ -1,19 +1,7 @@
 const mongoose = require("mongoose");
-const Joi = require("joi");
 const express = require("express");
 const router = express.Router();
-// const validateCustomers = require("../utils");
-
-const validateCustomers = (customer) => {
-  const schema = Joi.object({
-    isGold: Joi.boolean(),
-    name: Joi.string().min(5).max(50).required(),
-    phone: Joi.string().min(5).max(50).required(),
-  });
-
-  const result = schema.validate(customer);
-  return result;
-};
+const { validateCustomers } = require("../utils");
 
 const customerSchema = mongoose.Schema({
   isGold: {
