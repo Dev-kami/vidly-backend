@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const express = require("express");
 const router = express.Router();
-const validateGenre = require("../utils");
+const { validateGenre } = require("../utils");
 
 // const genreSchema = new mongoose.Schema({
 //     name: {
