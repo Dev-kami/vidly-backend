@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
-const Joi = require("joi");
 const express = require("express");
 const router = express.Router();
+const validateGenre = require("../utils");
 
 // const genreSchema = new mongoose.Schema({
 //     name: {
@@ -23,15 +23,6 @@ const Genre = mongoose.model(
     },
   })
 );
-
-const validateGenre = (genre) => {
-  const schema = Joi.object({
-    name: Joi.string().min(3).max(15).required(),
-  });
-
-  const result = schema.validate(genre);
-  return result;
-};
 
 // Get All genres
 router.get("/", async (req, res) => {
@@ -55,11 +46,10 @@ router.post("/", async (req, res) => {
   const { error } = validateGenre(req.body);
   if (error) return res.status(400).send(error.message);
 
-  // If req.body.name === the name of any genre in the genres array, return 400
-  const existingGenre = genres.find((g) => g.name === req.body.name);
+  let genre = new Genre({ name: req.body.name });
+  const existingGenre = await Genre.findOne({ name: req.body.name });
   if (existingGenre) return res.status(400).send("Genre already exists");
 
-  let genre = new Genre({ name: req.body.name });
   genre = await genre.save();
   res.send(genre);
 });
