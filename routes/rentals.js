@@ -1,5 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
+// const Fawn = require("fawn");
 const Fawn = require("fawn");
 const { Rental, validate } = require("../models/rentals");
 const { Customer } = require("../models/customer");
