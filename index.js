@@ -18,13 +18,17 @@ const rentals = require("./routes/rentals");
 const users = require("./routes/users");
 const auth = require("./routes/auth");
 
-process.on("uncaughtException", (ex) => {
-  winston.error(ex.message, ex);
-  process.exit(1);
-});
+// process.on("uncaughtException", (ex) => {
+//   winston.error(ex.message, ex);
+//   process.exit(1);
+// });
+
+winston.handleExceptionss(
+  new winston.transports.File({ filename: "uncaughtExceptions.log" })
+);
+
 process.on("unhandledRejection", (ex) => {
-  winston.error(ex.message, ex);
-  process.exit(1);
+  throw ex;
 });
 
 winston.add(winston.transports.File, { filename: "logfile.log" });
