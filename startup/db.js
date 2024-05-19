@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const winston = require("winston");
+
 module.exports = function () {
-  // Connect mongo client
   mongoose
     .connect("mongodb://localhost/vidly", {
       useNewUrlParser: true,
