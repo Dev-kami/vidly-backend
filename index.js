@@ -18,11 +18,21 @@ const rentals = require("./routes/rentals");
 const users = require("./routes/users");
 const auth = require("./routes/auth");
 
+process.on("uncaughtException", (ex) => {
+  winston.error(ex.message, ex);
+  process.exit(1);
+});
+process.on("unhandledRejection", (ex) => {
+  winston.error(ex.message, ex);
+  process.exit(1);
+});
+
 winston.add(winston.transports.File, { filename: "logfile.log" });
 // winston.add(winston.transports.MongoDB, {
 //   db: "mongodb://localhost/vidly",
 //   level: "error",
 // });
+// throw new Error("Something failed during startup.");
 
 app.use(express.json());
 app.use("/", home);
