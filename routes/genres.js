@@ -1,3 +1,4 @@
+const validateObjectId = require("../middleware/validateObjectId");
 const admin = require("../middleware/admin");
 const auth = require("../middleware/auth");
 const express = require("express");
@@ -12,7 +13,7 @@ router.get("/", async (req, res) => {
 });
 
 // Get a genre by id
-router.get("/:id", async (req, res) => {
+router.get("/:id", validateObjectId, async (req, res) => {
   const genre = await Genre.findById(req.params.id);
 
   if (!genre)

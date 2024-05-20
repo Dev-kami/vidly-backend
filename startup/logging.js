@@ -1,6 +1,6 @@
-require("express-async-errors");
 const winston = require("winston");
-require("winston-mongodb");
+// require("winston-mongodb");
+require("express-async-errors");
 
 module.exports = function () {
   // process.on("uncaughtException", (ex) => {
@@ -8,7 +8,7 @@ module.exports = function () {
   //   process.exit(1);
   // });
 
-  // winston.handleExceptionss(
+  // winston.handleExceptions(
   //   new winston.transports.File({ filename: "uncaughtExceptions.log" })
   // );
 
@@ -20,7 +20,6 @@ module.exports = function () {
 
   // winston.add(winston.transports.MongoDB, {
   //   db: "mongodb://localhost/vidly",
-  //   level: "error",
+  //   level: "info",
   // });
-  // throw new Error("Something failed during startup.");
 };
