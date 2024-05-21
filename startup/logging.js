@@ -20,6 +20,6 @@ module.exports = function () {
 
   // winston.add(winston.transports.MongoDB, {
   //   db: "mongodb://localhost/vidly",
-  //   level: "info",
+  //   level: "info"
   // });
 };
