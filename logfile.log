@@ -453,3 +453,5 @@
 {"level":"info","message":"Connected to mongodb://localhost/vidly...","timestamp":"2024-05-20T14:56:50.837Z"}
 {"level":"info","message":"listening in port 3000...","timestamp":"2024-05-21T03:01:04.630Z"}
 {"level":"info","message":"Connected to mongodb://localhost/vidly...","timestamp":"2024-05-21T03:01:04.749Z"}
+{"level":"info","message":"listening in port 3000...","timestamp":"2024-05-21T14:04:31.934Z"}
+{"level":"info","message":"Connected to mongodb://localhost/vidly...","timestamp":"2024-05-21T14:04:33.216Z"}
