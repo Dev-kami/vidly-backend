@@ -1,6 +1,14 @@
+const config = require("config");
 const winston = require("winston");
 const express = require("express");
 const app = express();
+const cors = require("cors");
+
+const corsOptions = {
+  origin: config.get("allow_origin"),
+  optionsSuccessStatus: 200,
+};
+app.use(cors(corsOptions));
 
 require("./startup/logging")();
 require("./startup/routes")(app);
