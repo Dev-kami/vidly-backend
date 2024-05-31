@@ -10,6 +10,12 @@ router.get("/me", auth, async (req, res) => {
   res.send(user);
 });
 
+// Get all Users
+router.get("/", async (req, res) => {
+  const users = await User.find().sort("name");
+  res.send(users);
+});
+
 router.post("/", async (req, res) => {
   const { error } = validate(req.body);
   if (error) return res.status(400).send(error.message);
