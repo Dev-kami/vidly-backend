@@ -39,7 +39,7 @@ router.post("/", auth, async (req, res) => {
     },
     movie: {
       _id: movie._id,
-      title: movie.titla,
+      title: movie.title,
       dailyRentalRate: movie.dailyRentalRate,
     },
   });
