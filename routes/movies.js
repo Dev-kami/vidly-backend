@@ -1,4 +1,5 @@
 const auth = require("../middleware/auth");
+const admin = require("../middleware/admin");
 const express = require("express");
 const { Movie, validate } = require("../models/movies");
 const { Genre } = require("../models/genres");
@@ -10,7 +11,7 @@ router.get("/", async (req, res) => {
   res.send(movies);
 });
 
-router.post("/", auth, async (req, res) => {
+router.post("/", [auth, admin], async (req, res) => {
   const { error } = validate(req.body);
   if (error) return res.status(400).send(error.message);
 
@@ -35,7 +36,7 @@ router.post("/", auth, async (req, res) => {
   res.send(movie);
 });
 
-router.put("/:id", auth, async (req, res) => {
+router.put("/:id", [auth, admin], async (req, res) => {
   const { error } = validate(req.body);
   if (error) return res.status(400).send(error.message);
 
@@ -61,12 +62,17 @@ router.put("/:id", auth, async (req, res) => {
   res.send(movie);
 });
 
-router.delete("/:id", auth, async (req, res) => {
-  const movie = await Movie.findByIdAndRemove(req.params.id);
+router.delete("/:title", [auth, admin], async (req, res) => {
+  const movie = await Movie.findOneAndRemove({
+    title: req.params.title,
+  });
   if (!movie)
-    return res.status(404).send("The movie with the given ID was not found");
+    return res.status(404).json({
+      status: "fail",
+      message: "The movie with the given title was not found",
+    });
 
-  res.send(movie);
+  res.status(200).json({ status: "success", data: movie });
 });
 
 router.get("/:id", async (req, res) => {
