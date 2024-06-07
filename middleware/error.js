@@ -8,8 +8,8 @@ const winston = require("winston");
 //  silly
 
 module.exports = function (err, req, res, next) {
-  winston.error(err.message, err);
+    winston.error(err.message, err);
 
-  //   res.status(500).send("Something failed.");
-  res.status(500).json({ error: err.message, status: 500 });
+    //   res.status(500).send("Something failed.");
+    res.status(500).json({ error: err.message, status: 500 });
 };
