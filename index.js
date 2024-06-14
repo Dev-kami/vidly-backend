@@ -5,8 +5,11 @@ const app = express();
 const cors = require("cors");
 
 const corsOptions = {
-  origin: config.get("allow_origin"),
-  optionsSuccessStatus: 200,
+    origin:
+        process.env.NODE_ENV === "production"
+            ? process.env.ALLOW_ORIGIN
+            : config.get("allow_origin"),
+    optionsSuccessStatus: 200,
 };
 app.use(cors(corsOptions));
 
@@ -17,9 +20,7 @@ require("./startup/config")();
 require("./startup/validation");
 require("./startup/prod")(app);
 
-const port = process.env.PORT || 3000;
-const server = app.listen(port, () =>
-  winston.info(`listening in port ${port}...`)
-);
+const port = process.env.PORT || 4000;
+const server = app.listen(port, () => winston.info(`listening in port ${port}...`));
 
 module.exports = server;

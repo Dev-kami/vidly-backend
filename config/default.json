@@ -1,5 +1,5 @@
 {
-  "jwtPrivateKey": "",
-  "db": "mongodb://localhost/vidly",
-  "allow_origin": "http://localhost:5173"
+    "jwtPrivateKey": "",
+    "db": "mongodb://localhost/vidly",
+    "allow_origin": "http://localhost:5173"
 }
