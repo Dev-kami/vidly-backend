@@ -17,5 +17,12 @@ module.exports = function (app) {
     app.use("/api/auth", auth);
     app.use("/api/rentals", rentals);
     app.use("/api/users", users);
+
+    app.all("*", (req, res) => {
+        res.status(404).json({
+            status: "fail",
+            message: `Can't find a route with this ${req.originalUrl} url`,
+        });
+    });
     app.use(error);
 };

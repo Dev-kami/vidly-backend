@@ -1053,3 +1053,24 @@
 {"message":"Customer validation failed: name: Path `name` (`d`) is shorter than the minimum allowed length (5)., phone: Path `phone` (`s`) is shorter than the minimum allowed length (5).","stack":"ValidationError: Customer validation failed: name: Path `name` (`d`) is shorter than the minimum allowed length (5)., phone: Path `phone` (`s`) is shorter than the minimum allowed length (5).\n    at Document.invalidate (C:\\Users\\Blossom\\Desktop\\node\\vidly-backend\\node_modules\\mongoose\\lib\\document.js:2788:32)\n    at C:\\Users\\Blossom\\Desktop\\node\\vidly-backend\\node_modules\\mongoose\\lib\\document.js:2580:17\n    at C:\\Users\\Blossom\\Desktop\\node\\vidly-backend\\node_modules\\mongoose\\lib\\schematype.js:1273:9\n    at process.processTicksAndRejections (node:internal/process/task_queues:77:11)","errors":{"name":{"name":"ValidatorError","message":"Path `name` (`d`) is shorter than the minimum allowed length (5).","properties":{"message":"Path `name` (`d`) is shorter than the minimum allowed length (5).","type":"minlength","minlength":5,"path":"name","value":"d"},"kind":"minlength","path":"name","value":"d"},"phone":{"name":"ValidatorError","message":"Path `phone` (`s`) is shorter than the minimum allowed length (5).","properties":{"message":"Path `phone` (`s`) is shorter than the minimum allowed length (5).","type":"minlength","minlength":5,"path":"phone","value":"s"},"kind":"minlength","path":"phone","value":"s"}},"_message":"Customer validation failed","level":"error","timestamp":"2024-06-14T13:17:04.342Z"}
 {"level":"info","message":"listening in port 4000...","timestamp":"2024-06-15T12:07:08.929Z"}
 {"level":"info","message":"Connected to mongodb://localhost/vidly...","timestamp":"2024-06-15T12:07:09.246Z"}
+{"level":"info","message":"listening in port 4000...","timestamp":"2024-06-18T09:35:22.223Z"}
+{"level":"info","message":"Connected to mongodb://localhost/vidly...","timestamp":"2024-06-18T09:35:24.909Z"}
+{"level":"info","message":"listening in port 4000...","timestamp":"2024-06-21T10:31:59.797Z"}
+{"level":"info","message":"Connected to mongodb://localhost/vidly...","timestamp":"2024-06-21T10:32:00.068Z"}
+{"level":"info","message":"listening in port 4000...","timestamp":"2024-06-21T10:33:16.308Z"}
+{"level":"info","message":"Connected to mongodb://localhost/vidly...","timestamp":"2024-06-21T10:33:16.358Z"}
+{"level":"info","message":"listening in port 4000...","timestamp":"2024-06-21T10:33:31.731Z"}
+{"level":"info","message":"Connected to mongodb://localhost/vidly...","timestamp":"2024-06-21T10:33:31.801Z"}
+{"level":"info","message":"listening in port 4000...","timestamp":"2024-06-21T10:33:42.427Z"}
+{"level":"info","message":"Connected to mongodb://localhost/vidly...","timestamp":"2024-06-21T10:33:42.473Z"}
+{"level":"info","message":"listening in port 4000...","timestamp":"2024-06-21T10:35:19.411Z"}
+{"level":"info","message":"Connected to mongodb://localhost/vidly...","timestamp":"2024-06-21T10:35:19.690Z"}
+{"level":"info","message":"listening in port 4000...","timestamp":"2024-06-21T10:35:50.516Z"}
+{"level":"info","message":"Connected to mongodb://localhost/vidly...","timestamp":"2024-06-21T10:35:50.686Z"}
+{"level":"info","message":"listening in port 4000...","timestamp":"2024-06-21T10:37:02.742Z"}
+{"level":"info","message":"Connected to mongodb://localhost/vidly...","timestamp":"2024-06-21T10:37:02.779Z"}
+{"level":"info","message":"listening in port 4000...","timestamp":"2024-06-21T10:38:01.544Z"}
+{"level":"info","message":"Connected to mongodb://localhost/vidly...","timestamp":"2024-06-21T10:38:01.631Z"}
+{"level":"info","message":"listening in port 4000...","timestamp":"2024-06-21T10:38:24.529Z"}
+{"level":"info","message":"Connected to mongodb://localhost/vidly...","timestamp":"2024-06-21T10:38:24.595Z"}
+{"message":"Cast to ObjectId failed for value \"d\" (type string) at path \"_id\" for model \"User\"","stack":"CastError: Cast to ObjectId failed for value \"d\" (type string) at path \"_id\" for model \"User\"\n    at model.Query.exec (C:\\Users\\Blossom\\Desktop\\node\\vidly-backend\\node_modules\\mongoose\\lib\\query.js:4498:21)\n    at Query.then (C:\\Users\\Blossom\\Desktop\\node\\vidly-backend\\node_modules\\mongoose\\lib\\query.js:4592:15)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)","stringValue":"\"d\"","kind":"ObjectId","value":"d","path":"_id","reason":{},"valueType":"string","level":"error","timestamp":"2024-06-21T10:38:32.852Z"}
