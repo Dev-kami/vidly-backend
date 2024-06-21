@@ -15,7 +15,7 @@ router.post("/", [auth, admin], async (req, res) => {
     const { error } = validate(req.body);
     if (error) return res.status(400).send(error.message);
 
-    const genre = await Genre.findById(req.body.genreId);
+    const genre = await Genre.findOne({ name: req.body.genreName });
     if (!genre) return res.status(400).send("Invalid genre.");
 
     const existingMovie = await Movie.findOne({ title: req.body.title });
